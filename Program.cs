@@ -10,9 +10,7 @@ builder.Services.AddDbContext<TestTaskDbContext>(options =>
     options.UseSqlServer(builder.Configuration["ConnectionStrings:TestTaskDbContextConnection"]);
 });
 
-
-
-builder.Services.AddScoped<IProductRepository, MockProductRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
