@@ -1,8 +1,16 @@
+using Microsoft.EntityFrameworkCore;
 using TestTaskIronWaterStudio.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<TestTaskDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:TestTaskDbContextConnection"]);
+});
+
+
 
 builder.Services.AddScoped<IProductRepository, MockProductRepository>();
 
