@@ -1,16 +1,35 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css">
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <title>Test Task</title>
 </head>
 <body>
-    <div>
+    <div class="container-xxl">
         <header>
-            
+            <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Product" asp-action="Index">Продукты</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </header>
-        @RenderBody()
+
+        <main role="main" class="mt-2">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </main>
     </div>
 </body>
 </html>

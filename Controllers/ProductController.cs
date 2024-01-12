@@ -58,7 +58,7 @@ namespace TestTaskIronWaterStudio.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int productId, [Bind("ProductId,Name,Description,Price")] Product product)
+        public IActionResult Edit(int productId, [Bind("Name,Description,Price")] Product product)
         {
             if (productId != product.ProductId)
             {
