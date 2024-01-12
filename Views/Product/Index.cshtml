@@ -1,0 +1,29 @@
+﻿@model ProductListViewModel
+
+<p>
+    <a asp-controller="Product" asp-action="Create">Добавить новый продукт</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a asp-action="Edit" asp-route-productId="@product.ProductId">Редактировать</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

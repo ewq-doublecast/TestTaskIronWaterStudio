@@ -12,5 +12,15 @@
 
         public Product? GetProductById(int productId) =>
             AllProducts.FirstOrDefault(p => p.ProductId == productId);
+
+        public void AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
