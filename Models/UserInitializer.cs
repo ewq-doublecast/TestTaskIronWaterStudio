@@ -17,7 +17,7 @@ namespace TestTaskIronWaterStudio.Models
             {
                 var newUser = new IdentityUser { UserName = username };
 
-                var createUserResult = await userManager.CreateAsync(newUser);
+                var createUserResult = await userManager.CreateAsync(newUser, password);
 
                 if (createUserResult.Succeeded)
                 {
