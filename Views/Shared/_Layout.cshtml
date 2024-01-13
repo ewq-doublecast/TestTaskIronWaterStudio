@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css">
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
     <title>Test Task</title>
 </head>
 <body>
@@ -19,6 +20,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Product" asp-action="Index">Продукты</a>
                             </li>
+                            <partial name="_LoginPartial" />
                         </ul>
                     </div>
                 </div>
@@ -28,6 +30,7 @@
         <main role="main" class="mt-2">
             <div class="container">
                 @RenderBody()
+                @RenderSection("Scripts", required: false)
             </div>
         </main>
     </div>
