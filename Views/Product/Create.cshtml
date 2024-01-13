@@ -1,22 +1,28 @@
 ﻿@model Product
 
-<h2>Создать новый продукт</h2>
-
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Name">Название продукта</label>
-        <input asp-for="Name" class="form-control"/>
-        <span asp-validation-for="Name" class="text-danger"></span>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <h2>Создать продукт</h2>
+            <hr />
+            <form asp-action="Create" method="post">
+                <div class="form-floating mb-3">
+                    <input asp-for="Name" class="form-control" />
+                    <label asp-for="Name" class="form-label">Название продукта</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Description" class="form-control" />
+                    <label asp-for="Description" class="form-label">Описание продукта</label>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Price" class="form-control" />
+                    <label asp-for="Price" class="form-label">Цена</label>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Создать</button>
+            </form>
+        </section>
     </div>
-    <div class="form-group">
-        <label asp-for="Description">Описание продукта</label>
-        <input asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Price">Цена</label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Создать</button>
-</form>
+</div>

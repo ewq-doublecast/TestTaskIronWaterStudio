@@ -8,9 +8,9 @@
     <title>Test Task</title>
 </head>
 <body>
-    <div class="container-xxl">
+    <div class="container-fluid">
         <header>
-            <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
@@ -20,19 +20,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Product" asp-action="Index">Продукты</a>
                             </li>
-                            <partial name="_LoginPartial" />
                         </ul>
+                        <partial name="_LoginPartial" />
                     </div>
                 </div>
             </nav>
         </header>
 
-        <main role="main" class="mt-2">
-            <div class="container">
-                @RenderBody()
-                @RenderSection("Scripts", required: false)
-            </div>
-        </main>
+        <div class="container">
+            @RenderBody()
+            @RenderSection("Scripts", required: false)
+        </div>
     </div>
 </body>
 </html>

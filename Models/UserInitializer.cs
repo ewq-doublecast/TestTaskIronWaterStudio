@@ -4,7 +4,7 @@ namespace TestTaskIronWaterStudio.Models
 {
     public static class UserInitializer
     {
-        public static async Task CreateAdminUser(IApplicationBuilder applicationBuilder, IConfiguration configuration)
+        public static async Task CreateUser(IApplicationBuilder applicationBuilder, IConfiguration configuration)
         {
             var userManager = applicationBuilder.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 

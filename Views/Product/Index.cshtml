@@ -1,28 +1,33 @@
 ﻿@model ProductListViewModel
 
-<a class="btn btn-primary" asp-controller="Product" asp-action="Create">
-    Создать новый продукт
-</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Название</th>
-            <th>Цена</th>
-            <th>Действие</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model.Products)
-        {
-            <tr>
-                <td>@product.ProductId</td>
-                <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td>
-                    <a asp-action="Edit" asp-route-productId="@product.ProductId">Редактировать</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            <a class="btn btn-primary my-2" asp-controller="Product" asp-action="Create">Создать новый продукт</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>@product.ProductId</td>
+                            <td>@product.Name</td>
+                            <td>@product.Price</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-productId="@product.ProductId">Редактировать</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+

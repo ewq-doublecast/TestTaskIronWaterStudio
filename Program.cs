@@ -44,6 +44,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-await UserInitializer.CreateAdminUser(app, builder.Configuration);
+await UserInitializer.CreateUser(app, builder.Configuration);
 
 app.Run();
