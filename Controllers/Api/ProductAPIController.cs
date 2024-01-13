@@ -7,11 +7,11 @@ namespace TestTaskIronWaterStudio.Controllers.Api
     [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductAPIController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductAPIController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
@@ -45,12 +45,9 @@ namespace TestTaskIronWaterStudio.Controllers.Api
                 filteredProducts = filteredProducts.Where(p => p.Price <= maxPrice.Value);
             }
 
-            var result = filteredProducts.Select(p => new
-            {
-                p.ProductId,
-                p.Name,
-                p.Price
-            });
+            var result = filteredProducts
+                .Select(p => new { p.ProductId, p.Name, p.Price })
+                .OrderBy(p => p.ProductId);
 
             return new JsonResult(result);
         }

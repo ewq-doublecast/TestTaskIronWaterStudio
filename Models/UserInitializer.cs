@@ -4,8 +4,10 @@ namespace TestTaskIronWaterStudio.Models
 {
     public static class UserInitializer
     {
-        public static async Task CreateAdminUser(UserManager<IdentityUser> userManager, IConfiguration configuration)
+        public static async Task CreateAdminUser(IApplicationBuilder applicationBuilder, IConfiguration configuration)
         {
+            var userManager = applicationBuilder.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
             var username = configuration["Auth:Username"];
             var password = configuration["Auth:Password"];
 
@@ -13,12 +15,9 @@ namespace TestTaskIronWaterStudio.Models
 
             if (user == null)
             {
-                var newUser = new IdentityUser
-                {
-                    UserName = username
-                };
+                var newUser = new IdentityUser { UserName = username };
 
-                var createUserResult = await userManager.CreateAsync(newUser, password);
+                var createUserResult = await userManager.CreateAsync(newUser);
 
                 if (createUserResult.Succeeded)
                 {

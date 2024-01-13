@@ -44,19 +44,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-
-    try
-    {
-        var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-        await UserInitializer.CreateAdminUser(userManager, builder.Configuration);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error creating admin user: {ex.Message}");
-    }
-}
+await UserInitializer.CreateAdminUser(app, builder.Configuration);
 
 app.Run();
